@@ -82,13 +82,13 @@ clinic_saas/
 - Supports roles and tenant linkage
 - Avoids risky migrations later
 
-```python
-AUTH_USER_MODEL = 'accounts.User'
-<img width="1890" height="875" alt="Screenshot 2026-02-09 222802" src="https://github.com/user-attachments/assets/e275cfbe-9e50-4434-9f4a-b8926e67d897" />
-<img width="1883" height="866" alt="Screenshot 2026-02-09 222751" src="https://github.com/user-attachments/assets/a9e01d4f-5d69-44c9-907c-459c123abf93" />
-<img width="1885" height="856" alt="Screenshot 2026-02-09 222744" src="https://github.com/user-attachments/assets/b6a97b62-4732-463a-9192-41c01378a4fa" />
-<img width="1887" height="863" alt="Screenshot 2026-02-09 222737" src="https://github.com/user-attachments/assets/065f5a66-b083-4499-8871-edbcbfa8e810" />
-<img width="1884" height="879" alt="Screenshot 2026-02-09 222730" src="https://github.com/user-attachments/assets/1ec89a5d-88c3-4e4b-9796-60c9130b04b1" />
+<img width="1890" height="875" alt="Screenshot 2026-02-09 222802" src="https://github.com/user-attachments/assets/4b464765-6ec3-4636-85b3-f6dc9eedec33" />
+<img width="1883" height="866" alt="Screenshot 2026-02-09 222751" src="https://github.com/user-attachments/assets/00f0280d-055f-458c-8cdd-6cdbfb2ae70d" />
+<img width="1885" height="856" alt="Screenshot 2026-02-09 222744" src="https://github.com/user-attachments/assets/44d2c16e-d6a3-47b9-bb64-5c49161ac1cc" />
+<img width="1887" height="863" alt="Screenshot 2026-02-09 222737" src="https://github.com/user-attachments/assets/dfa876cb-25db-4c15-a7a7-cc90a30020b8" />
+<img width="1884" height="879" alt="Screenshot 2026-02-09 222730" src="https://github.com/user-attachments/assets/80c3e868-2334-4483-a470-d4bda9b983e1" />
+
+
 
 
 
