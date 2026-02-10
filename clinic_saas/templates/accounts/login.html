@@ -1,0 +1,35 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Clinic Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+
+  <div class="login-card">
+    <h2 class="login-title">Clinic Login</h2>
+
+    {% if error %}
+      <div class="login-error">
+        {{ error }}
+      </div>
+    {% endif %}
+
+    <form method="POST" class="login-form">
+      {% csrf_token %}
+      <input name="username" placeholder="Username" required>
+      <input name="password" type="password" placeholder="Password" required>
+      <button class="login-btn">Login</button>
+    </form>
+
+    <div class="login-footer">
+      Secure access to Clinic Management System
+    </div>
+  </div>
+
+</body>
+</html>

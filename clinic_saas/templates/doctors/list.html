@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/doctors.css' %}">
+
+<h2 class="doctors-title">Doctors</h2>
+
+<!-- Doctor Table -->
+<div class="doctors-table-wrapper">
+  <table class="doctors-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Specialization</th>
+        <th>Fee</th>
+        <th>Availability</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for d in doctors %}
+      <tr>
+        <td>Dr. {{ d.user.get_full_name }}</td>
+        <td>{{ d.specialization }}</td>
+        <td>₹{{ d.consultation_fee }}</td>
+        <td>{{ d.available_from }} – {{ d.available_to }}</td>
+        <td>
+          {% if d.is_active %}
+            <span class="status-active">Active</span>
+          {% else %}
+            <span class="status-inactive">Inactive</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="5" class="empty-row">
+          No doctors found
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<!-- Add Doctor -->
+<div class="doctor-form-card">
+  <h3 class="doctor-form-title">Add Doctor</h3>
+
+  <form method="POST" class="doctor-form-grid">
+    {% csrf_token %}
+
+    <input name="first_name" placeholder="First Name" required>
+    <input name="last_name" placeholder="Last Name" required>
+
+    <input name="email" placeholder="Email" required>
+    <input name="phone" placeholder="Phone" required>
+
+    <input name="registration_number" placeholder="Registration Number" required>
+    <input name="qualification" placeholder="Qualification" required>
+
+    <input name="specialization" placeholder="Specialization" required>
+    <input name="experience_years" type="number" placeholder="Experience (years)">
+
+    <input name="consultation_fee" placeholder="Consultation Fee" required>
+    <input type="time" name="available_from" required>
+    <input type="time" name="available_to" required>
+
+    <button class="btn-primary form-span-2">
+      Save Doctor
+    </button>
+  </form>
+</div>
+
+{% endblock %}

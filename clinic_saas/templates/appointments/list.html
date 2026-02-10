@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/appointments.css' %}">
+
+<h2 class="appointments-title">Appointments</h2>
+
+<!-- BOOK APPOINTMENT -->
+<div class="appointment-form-card">
+  <form method="POST" class="appointment-form-grid">
+    {% csrf_token %}
+
+    <select name="patient" required>
+      <option value="">Select Patient</option>
+      {% for p in patients %}
+        <option value="{{ p.id }}">{{ p.name }} ({{ p.mrn }})</option>
+      {% endfor %}
+    </select>
+
+    <select name="doctor" required>
+      <option value="">Select Doctor</option>
+      {% for d in doctors %}
+        <option value="{{ d.id }}">{{ d.user.get_full_name }}</option>
+      {% endfor %}
+    </select>
+
+    <input type="date" name="appointment_date" min="{{ today }}" required>
+    <input type="time" name="appointment_time" required>
+
+    <input type="number" name="duration" placeholder="Duration (min)" value="15">
+    <input type="number" name="fee" placeholder="Consultation Fee" required>
+
+    <input name="reason"
+           placeholder="Reason for visit"
+           class="form-span-3"
+           required>
+
+    <textarea name="notes"
+              placeholder="Notes"
+              class="form-span-3"></textarea>
+
+    <button class="btn-primary form-span-3">
+      Book Appointment
+    </button>
+  </form>
+</div>
+
+<hr class="section-divider">
+
+<!-- APPOINTMENTS LIST -->
+<div class="appointments-table-wrapper">
+  <table class="appointments-table">
+    <thead>
+      <tr>
+        <th>Patient</th>
+        <th>Doctor</th>
+        <th>Date</th>
+        <th>Time</th>
+        <th>End</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for a in appointments %}
+      <tr>
+        <td>{{ a.patient.name }}</td>
+        <td>{{ a.doctor.user.get_full_name }}</td>
+        <td>{{ a.appointment_date }}</td>
+        <td>{{ a.appointment_time }}</td>
+        <td>{{ a.end_time }}</td>
+        <td>
+          <span class="status-{{ a.status|lower }}">
+            {{ a.status }}
+          </span>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="6" class="empty-row">
+          No appointments found
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% endblock %}

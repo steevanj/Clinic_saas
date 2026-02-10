@@ -1,0 +1,92 @@
+/* BILLING PAGE */
+
+/* TITLE */
+.billing-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+/* TABLE */
+.billing-table-wrapper {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow-x: auto;
+}
+
+.billing-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.billing-table thead {
+    background: #f9fafb;
+}
+
+.billing-table th,
+.billing-table td {
+    padding: 12px 16px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.billing-table th {
+    font-weight: 600;
+    color: #374151;
+}
+
+.billing-table tbody tr {
+    border-top: 1px solid #e5e7eb;
+}
+
+.billing-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+/* STATUS */
+.status-paid {
+    color: #16a34a;
+    font-weight: 600;
+}
+
+.status-pending {
+    color: #d97706;
+    font-weight: 600;
+}
+
+/* PAYMENT FORM */
+.payment-form {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.payment-form select,
+.payment-form input {
+    padding: 6px 8px;
+    font-size: 13px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+}
+
+.payment-form select:focus,
+.payment-form input:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+/* EMPTY */
+.empty-row {
+    text-align: center;
+    padding: 24px;
+    color: #6b7280;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .payment-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

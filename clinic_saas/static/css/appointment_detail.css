@@ -1,0 +1,111 @@
+/* APPOINTMENT DETAIL PAGE */
+
+/* TITLE */
+.appointment-title {
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/* DETAIL CARD */
+.appointment-card {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 24px;
+}
+
+.appointment-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 24px;
+}
+
+.appointment-item {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.appointment-item strong {
+    color: #374151;
+}
+
+/* STATUS */
+.status {
+    font-weight: 600;
+}
+
+.status-in-progress {
+    color: #2563eb;
+}
+
+.status-completed {
+    color: #16a34a;
+}
+
+.status-cancelled {
+    color: #dc2626;
+}
+
+/* DIVIDER */
+.divider {
+    margin: 32px 0;
+    border: none;
+    border-top: 1px solid #e5e7eb;
+}
+
+/* FORM */
+.status-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.status-form {
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 20px;
+    max-width: 480px;
+}
+
+.status-form select,
+.status-form textarea {
+    width: 100%;
+    padding: 10px 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid #d1d5db;
+    margin-bottom: 12px;
+}
+
+.status-form select:focus,
+.status-form textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.status-form textarea {
+    min-height: 90px;
+    resize: vertical;
+}
+
+/* BACK LINK */
+.back-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: #2563eb;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .appointment-grid {
+        grid-template-columns: 1fr;
+    }
+}

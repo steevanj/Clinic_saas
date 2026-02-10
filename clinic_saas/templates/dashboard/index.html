@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Dashboard</h2>
+
+<div style="display:grid; grid-template-columns:repeat(4,1fr); gap:20px;">
+
+  <div class="card">
+    <h3>Patients</h3>
+    <p>{{ patients_count }}</p>
+  </div>
+
+  <div class="card">
+    <h3>Doctors</h3>
+    <p>{{ doctors_count }}</p>
+  </div>
+
+  <div class="card">
+    <h3>Today’s Appointments</h3>
+    <p>{{ today_appointments }}</p>
+  </div>
+
+  <div class="card">
+    <h3>Pending Invoices</h3>
+    <p>{{ pending_invoices }}</p>
+  </div>
+
+</div>
+{% endblock %}

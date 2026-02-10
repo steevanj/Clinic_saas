@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/appointment_detail.css' %}">
+
+<h2 class="appointment-title">Appointment Detail</h2>
+
+<div class="appointment-card">
+  <div class="appointment-grid">
+
+    <div class="appointment-item">
+      <strong>Patient:</strong>
+      {{ appointment.patient.name }} (MRN: {{ appointment.patient.mrn }})
+    </div>
+
+    <div class="appointment-item">
+      <strong>Doctor:</strong>
+      {{ appointment.doctor.user.get_full_name }}
+    </div>
+
+    <div class="appointment-item">
+      <strong>Date:</strong> {{ appointment.appointment_date }}
+    </div>
+
+    <div class="appointment-item">
+      <strong>Time:</strong> {{ appointment.appointment_time }}
+    </div>
+
+    <div class="appointment-item">
+      <strong>Duration:</strong>
+      {{ appointment.expected_duration_minutes }} minutes
+    </div>
+
+    <div class="appointment-item">
+      <strong>Reason:</strong>
+      {{ appointment.reason_for_visit }}
+    </div>
+
+    <div class="appointment-item">
+      <strong>Fee:</strong>
+      ₹{{ appointment.consultation_fee }}
+    </div>
+
+    <div class="appointment-item">
+      <strong>Notes:</strong>
+      {{ appointment.notes|default:"—" }}
+    </div>
+
+    <div class="appointment-item">
+      <strong>Status:</strong>
+      <span class="status status-{{ appointment.status|lower }}">
+        {{ appointment.status }}
+      </span>
+    </div>
+
+    <div class="appointment-item">
+      <strong>Checked in at:</strong>
+      {{ appointment.checked_in_at|default:"—" }}
+    </div>
+
+    <div class="appointment-item">
+      <strong>Completed at:</strong>
+      {{ appointment.completed_at|default:"—" }}
+    </div>
+
+    <div class="appointment-item">
+      <strong>Cancelled at:</strong>
+      {{ appointment.cancelled_at|default:"—" }}
+    </div>
+
+    <div class="appointment-item">
+      <strong>Cancelled reason:</strong>
+      {{ appointment.cancelled_reason|default:"—" }}
+    </div>
+
+  </div>
+</div>
+
+<hr class="divider">
+
+<h3 class="status-title">Update Status</h3>
+
+<form method="POST"
+      action="{% url 'appointments:update_status' appointment.id %}"
+      class="status-form">
+  {% csrf_token %}
+  
+  <select name="status" required>
+    <option value="">-- Select Status --</option>
+    <option value="IN_PROGRESS">In Progress</option>
+    <option value="COMPLETED">Completed</option>
+    <option value="CANCELLED">Cancelled</option>
+  </select>
+
+  <textarea name="cancel_reason"
+            placeholder="Reason for cancellation (if applicable)"></textarea>
+
+  <button class="btn-primary">Update</button>
+</form>
+
+<a href="{% url 'appointments:list' %}" class="back-link">
+  ← Back to Appointments
+</a>
+
+{% endblock %}
